@@ -89,9 +89,8 @@ export default function SearchDemo() {
         </div>
       )}
       <p className="demo-note">
-        Latency is simulated at 650ms, slower than the real endpoint, so the states
-        are visible: skeleton on first open, previous results dimmed while a new
-        query resolves.
+        Slowed down to 650ms on purpose so you can see the states: skeleton
+        first, then old results grayed out while the new search runs.
       </p>
     </div>
   );

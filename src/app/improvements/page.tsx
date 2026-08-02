@@ -5,7 +5,7 @@ import SearchDemo from "@/components/SearchDemo";
 export const metadata: Metadata = {
   title: "What I’d build",
   description:
-    "The three highest-return design moves for manapool.com, with a working fix for the search defect.",
+    "The three things I’d do first for manapool.com, including a working fix for the search bug.",
 };
 
 const tier = (c: "fix" | "conv" | "craft" | "good" | "meta") =>
@@ -17,16 +17,17 @@ export default function ImprovementsPage() {
       <header className="hero">
         <div className="kicker">
           <span className="label" style={tier("fix")}>
-            Proposals // ranked by expected return
+            Proposals // what I&rsquo;d do first
           </span>
         </div>
         <h1>
           What I&rsquo;d build, <em>in order.</em>
         </h1>
         <p className="standfirst">
-          All three point at the same fact: <strong>the differentiator already
-          exists</strong>. None of this is speculative redesign. Each item is scoped
-          against what the site already does today.
+          None of this is a redesign for its own sake.{" "}
+          <strong>The good stuff is already built</strong> — these are the three
+          things I&rsquo;d do to let it show, plus the bug fix that comes before
+          any of them.
         </p>
       </header>
 
@@ -34,17 +35,17 @@ export default function ImprovementsPage() {
         <article className="rung" style={tier("fix")} id="search">
           <div className="top">
             <span className="idx num">0</span>
-            <h3>First, the defect: give search a loading state</h3>
+            <h3>First, fix the search bug</h3>
             <div className="tags">
               <span>Fix</span>
               <span>Small</span>
             </div>
           </div>
           <p>
-            This precedes any redesign. The panel needs a skeleton on open, and it
-            needs to hold the previous results visibly dimmed while the next query
-            resolves. Below is the actual behaviour of manapool.com today, next to
-            a working version of the fix.
+            Before any design work. The panel needs a loading skeleton when it
+            opens, and old results should gray out while new ones load. Left:
+            the live site today. Right: the fix, working. Go ahead and type in
+            it.
           </p>
           <div className="ba">
             <div className="pane" style={tier("fix")}>
@@ -65,28 +66,28 @@ export default function ImprovementsPage() {
         <article className="rung" style={tier("conv")}>
           <div className="top">
             <span className="idx num">1</span>
-            <h3>Homepage and optimizer storytelling</h3>
+            <h3>Put the optimizer on the homepage</h3>
             <div className="tags">
               <span>Product design</span>
               <span>No engineering</span>
             </div>
           </div>
           <p>
-            Reframe the funnel around &ldquo;paste a deck, spend less.&rdquo; The
-            engine already works, so this is positioning and flow work. It is the
-            cheapest large win at the top of the funnel.
+            The pitch writes itself: paste a deck, watch it get cheaper. The
+            engine already works, so this is layout and copy, not new
+            engineering.
           </p>
           <div className="ba">
             <div className="pane" style={tier("craft")}>
               <div className="bar">Today&rsquo;s hero</div>
               <div className="inner">
                 <p style={{ font: "var(--type-h3)", letterSpacing: "var(--type-h3-ls)" }}>
-                  35 million MTG cards in stock, with the best Cart Optimizer in the
-                  business.
+                  35 million MTG cards in stock, with the best Cart Optimizer in
+                  the business.
                 </p>
                 <p className="demo-note">
-                  The claim is asserted, never demonstrated. The optimizer is one
-                  unlabelled link away.
+                  The claim is there, but you never see it happen. The optimizer
+                  is one unexplained link away.
                 </p>
               </div>
             </div>
@@ -98,8 +99,8 @@ export default function ImprovementsPage() {
                 </p>
                 <p className="demo-note">
                   A live input, prefilled with a sample deck, running the real
-                  optimizer. The proof is the pitch: $25.19 across 10 packages
-                  becomes $15.41 across 2.
+                  optimizer. $25.19 across 10 packages becomes $15.41 across 2.
+                  Shown, not claimed.
                 </p>
               </div>
             </div>
@@ -109,37 +110,35 @@ export default function ImprovementsPage() {
         <article className="rung" style={tier("conv")}>
           <div className="top">
             <span className="idx num">2</span>
-            <h3>Trust and pricing at the point of decision</h3>
+            <h3>Answer &ldquo;can I trust this?&rdquo; before the cart</h3>
             <div className="tags">
               <span>Product design</span>
               <span>Light engineering</span>
             </div>
           </div>
           <p>
-            Marketplace-level buyer protection beside &ldquo;+ Add&rdquo;, and
-            all-in pricing before the cart. Guest checkout already works; these are
-            the two pieces missing around it. During the review, a twelve-card cart
-            carried $11.30 of product and $13.50 of shipping. That number belongs in
-            front of the buyer, as the reason to run the optimizer, not at the end
-            as a surprise.
+            Buyer protection next to the Add button, and honest all-in prices
+            before the cart. Guest checkout is already good — these are the two
+            missing pieces around it. My twelve-card cart had $11.30 of cards
+            and $13.50 of shipping. That number should be a reason to run the
+            optimizer, not a surprise at checkout.
           </p>
         </article>
 
         <article className="rung" style={tier("craft")}>
           <div className="top">
             <span className="idx num">3</span>
-            <h3>A lightweight design system</h3>
+            <h3>A small design system</h3>
             <div className="tags">
               <span>Design engineering</span>
-              <span>Long-run payoff</span>
+              <span>Pays off forever</span>
             </div>
           </div>
           <p>
-            Tokens, a type scale and a component kit, so consistent, branded UI
-            ships fast. On a small team, this work speeds up everything built after
-            it. This site is the demonstration: every colour, type style and
-            spacing step on these two pages comes from one token file, themed dark
-            and light, with category colour carrying severity throughout.
+            Tokens, a type scale, and a small component kit, so screens stop
+            being spaced by hand. This site is the demo: every color, font size
+            and gap on these two pages comes from one token file, with a dark
+            and a light theme and color-coded severity throughout.
           </p>
         </article>
       </div>

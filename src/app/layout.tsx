@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     template: "%s · Mana Pool Audit",
   },
   description:
-    "An independent product and UX audit of manapool.com: one reproducible defect, four conversion levers, four craft items, and what a design hire would build first.",
+    "I used Mana Pool for the first time and wrote down what I found: one real bug, four things that lose new buyers, and what I'd fix first.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

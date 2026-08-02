@@ -20,29 +20,28 @@ const FINDINGS: Finding[] = [
     cat: "fix",
     sev: "Fix first",
     tags: ["Search", "Reproducible"],
-    title: "Search autocomplete has no loading state at all",
+    title: "Search looks broken the first time you use it",
     body: (
       <>
         <p>
-          On first open the suggestions panel appears <em>immediately but empty</em>.
-          The hero art shows through it. Results paint roughly a second later, with
-          no spinner or skeleton in between. For a full second the site looks broken
-          at its single most-used control.
+          Type in the search box and a suggestion panel pops open with nothing in
+          it. You can see the homepage art right through it. About a second later
+          the results show up. No spinner, no placeholder, nothing. For that
+          second I assumed the site was broken.
         </p>
         <p>
-          The second failure is worse. On a follow-up query the panel keeps showing
-          the <em>previous</em>{" "}query&rsquo;s results, with nothing marking them as
-          stale. I typed <b>counters</b> and the panel sat there listing{" "}
+          It gets worse. Type a second search and the panel keeps showing your
+          old results. I typed <b>counters</b> and it just sat there listing{" "}
           <b>Light of Day</b>, <b>Light of Hope</b> and <b>Light of Judgment</b>.
         </p>
       </>
     ),
-    rxLabel: "Fix",
+    rxLabel: "What I’d do",
     rx: (
       <>
-        Render a skeleton row on open, and dim the previous results until the next
-        query resolves. The fix is small.{" "}
-        <a href="/improvements#search">A working version is on the improvements page.</a>
+        Show a loading skeleton the moment the panel opens, and gray out old
+        results while new ones load. It&rsquo;s a small fix, and I built it:{" "}
+        <a href="/improvements#search">there&rsquo;s a working version on the next page</a>.
       </>
     ),
     evidence: (
@@ -51,8 +50,8 @@ const FINDINGS: Finding[] = [
           <source src="/media/search-no-loading-state.mp4" type="video/mp4" />
         </video>
         <figcaption>
-          Live capture, warm cache. The panel opens with nothing in it. No spinner,
-          no skeleton, no border against the artwork.
+          Recorded on the live site. Panel open, nothing in it. No spinner, no
+          border, just the artwork showing through.
         </figcaption>
       </figure>
     ),
@@ -62,24 +61,25 @@ const FINDINGS: Finding[] = [
     cat: "conv",
     sev: "Conversion",
     tags: ["Homepage", "Positioning"],
-    title: "The homepage buries the one thing that makes Mana Pool different",
+    title: "The homepage never shows you the good part",
     body: (
       <p>
-        The hero is stock battle art plus{" "}
+        The homepage says{" "}
         <em>
-          &ldquo;35 million MTG cards in stock, with the best Cart Optimizer in the
-          business.&rdquo;
+          &ldquo;35 million MTG cards in stock, with the best Cart Optimizer in
+          the business.&rdquo;
         </em>{" "}
-        The optimizer is the reason to choose this store over any other, and it sits
-        behind a single link labelled &ldquo;Mass entry&rdquo;. It is never{" "}
-        <em>shown</em>. The most valuable feature is the least visible.
+        Okay. But it never shows you. The only way in is a little link called
+        &ldquo;Mass entry&rdquo;, and I didn&rsquo;t click it for a while because
+        I had no idea what it was. The best feature on the site is the hardest
+        one to find.
       </p>
     ),
-    rxLabel: "Recommend",
+    rxLabel: "What I’d do",
     rx: (
       <>
-        Lead with a live &ldquo;paste your deck, we find the cheapest way to buy
-        it&rdquo; moment. The demo needs no new engineering.
+        Put the optimizer on the homepage. Paste a deck, watch the price drop.
+        That demo is worth more than any tagline, and it already works.
       </>
     ),
   },
@@ -88,63 +88,75 @@ const FINDINGS: Finding[] = [
     cat: "conv",
     sev: "Conversion",
     tags: ["Navigation", "Copy"],
-    title: "“Mass entry” is insider jargon for the marquee feature",
+    title: "Nobody new knows what “Mass entry” means",
     body: (
       <p>
-        No buyer reads &ldquo;Mass entry&rdquo; as &ldquo;build a deck and spend
-        less.&rdquo; The label names the input method, and it is the primary entry
-        point to the optimizer. The route behind it is already <b>/add-deck</b>. The
-        URL is clearer than the label.
+        It&rsquo;s the main link to the optimizer, and it describes the input box
+        instead of what you get out of it. The URL behind it is{" "}
+        <b>/add-deck</b>, which honestly says it better.
       </p>
     ),
-    rxLabel: "Recommend",
-    rx: <>Rename it for the outcome: &ldquo;Build a deck&rdquo;, or &ldquo;Price a decklist&rdquo;.</>,
+    rxLabel: "What I’d do",
+    rx: (
+      <>
+        Call it what it does: &ldquo;Build a deck&rdquo; or &ldquo;Price a
+        decklist&rdquo;.
+      </>
+    ),
   },
   {
     idx: "04",
     cat: "conv",
     sev: "Conversion",
     tags: ["Listings", "Trust"],
-    title: "Per-seller credibility is good; marketplace-level assurance is missing",
+    title: "I wasn’t sure I could trust the sellers",
     body: (
       <p>
-        Seller rows carry real signal: a verified badge, lifetime sales count,
-        location and a free-shipping flag. There is no <em>marketplace</em>{" "}promise
-        anywhere near the &ldquo;+ Add&rdquo; control. No buyer protection, no
-        condition-accuracy guarantee, no return terms. Multi-seller marketplaces
-        live or die on that distinction, and the per-seller badge is the signal a
-        hesitant buyer trusts least.
+        Each seller shows a verified badge, a sales count and a location, which
+        helps. But nowhere near the &ldquo;+ Add&rdquo; button does the site say
+        what happens if my card shows up damaged, or never shows up at all. No
+        buyer protection, no condition guarantee, no return policy. For a first
+        order from a store I&rsquo;d never heard of, that&rsquo;s the thing I
+        actually wanted to know.
       </p>
     ),
-    rxLabel: "Recommend",
-    rx: <>Put one compact, marketplace-wide protection line beside add-to-cart.</>,
+    rxLabel: "What I’d do",
+    rx: (
+      <>
+        Put one line of buyer protection right next to add-to-cart —
+        &ldquo;Every order covered&rdquo; with a link to the policy. That answers
+        the question at the exact moment a new buyer is asking it.
+      </>
+    ),
   },
   {
     idx: "05",
     cat: "conv",
     sev: "Conversion",
     tags: ["Pricing"],
-    title: "Fees appear only once the cart is built",
+    title: "The fees and shipping show up at the end",
     body: (
       <>
         <p>
-          The Singles Fee surfaces at the cart and nowhere earlier. All-in pricing
-          shown up front reduces the surprise that drives abandonment. It is also
-          the ground TCGplayer or Cardmarket would choose to attack.
+          There&rsquo;s a &ldquo;Singles Fee&rdquo; you only learn about at the
+          cart. So prices everywhere else look a little cheaper than they really
+          are, which is exactly the kind of thing TCGplayer or Cardmarket could
+          poke at.
         </p>
         <p>
-          A cart I built during this review made the point: twelve cards,{" "}
-          <b>$11.30 of product against $13.50 of shipping</b>, across ten packages.
-          Shipping cost more than the cards. The optimizer exists to fix exactly
-          this, and the buyer meets the number after the cart is already full.
+          My own cart made the case. Twelve cards:{" "}
+          <b>$11.30 of cards, $13.50 of shipping</b>, split across ten packages.
+          The shipping cost more than the cards. The optimizer exists to fix
+          exactly that, and I only found out at the very end.
         </p>
       </>
     ),
-    rxLabel: "Recommend",
+    rxLabel: "What I’d do",
     rx: (
       <>
-        Show all-in pricing earlier, and put the shipping gap in front of the buyer
-        as a reason to run the optimizer.
+        Show real all-in prices earlier, and turn that shipping number into the
+        sales pitch: &ldquo;paying more for shipping than cards? Run the
+        optimizer.&rdquo;
       </>
     ),
   },
@@ -153,14 +165,20 @@ const FINDINGS: Finding[] = [
     cat: "craft",
     sev: "Craft",
     tags: ["Brand", "Design engineering"],
-    title: "The visual brand is undifferentiated",
+    title: "It looks like every other card site",
     body: (
       <p>
-        Default blue and green, system typography, generic grids. It works, and it
-        is forgettable next to TCGplayer, Card Kingdom and Cardmarket. A light
-        visual system would fix it: a type scale, a spacing rhythm, a distinctive
-        accent, real iconography.
+        Blue buttons, green buttons, default-looking fonts and grids. Nothing is
+        ugly. It&rsquo;s just forgettable next to TCGplayer, Card Kingdom and
+        Cardmarket.
       </p>
+    ),
+    rxLabel: "What I’d do",
+    rx: (
+      <>
+        A basic visual system: a type scale, consistent spacing, an actual accent
+        color, real icons. Not a rebrand — a coat of intent.
+      </>
     ),
   },
   {
@@ -168,41 +186,47 @@ const FINDINGS: Finding[] = [
     cat: "craft",
     sev: "Craft",
     tags: ["Consistency"],
-    title: "Layouts are spaced by hand",
+    title: "Spacing is inconsistent between screens",
     body: (
       <p>
-        Empty vertical space inside components and small inconsistencies across
-        screens point to per-screen spacing decisions with no shared tokens. A
-        design system removes this kind of drift.
+        There&rsquo;s odd empty space inside some components, and gaps that
+        don&rsquo;t match from page to page. It looks like each screen was spaced
+        by hand instead of from shared values.
       </p>
     ),
+    rxLabel: "What I’d do",
+    rx: <>Shared spacing tokens. Boring, quick, and the drift stops for good.</>,
   },
   {
     idx: "08",
     cat: "craft",
     sev: "Craft",
     tags: ["Navigation"],
-    title: "Navigation differs between home and interior pages",
+    title: "The nav changes between pages",
     body: (
       <p>
-        At the same 1512px viewport, the homepage shows a full text navigation and
-        interior pages collapse to a hamburger. Minor, and a design system would
-        prevent it.
+        At the same window width, the homepage shows the full menu and every
+        other page collapses it into a hamburger. Small thing, but new visitors
+        notice something feels off before they can say what.
       </p>
     ),
+    rxLabel: "What I’d do",
+    rx: <>One shared header component, used everywhere.</>,
   },
   {
     idx: "09",
     cat: "craft",
     sev: "Craft",
     tags: ["URL hygiene"],
-    title: "The URL scheme mixes conventions",
+    title: "URLs mix two naming styles",
     body: (
       <p>
-        Routes mix kebab-case and snake_case (<b>/cards</b>, <b>/browse_sealed</b>,{" "}
-        <b>/add-deck</b>, <b>/auth</b>); normalise with redirects when convenient.
+        <b>/cards</b>, <b>/browse_sealed</b>, <b>/add-deck</b>, <b>/auth</b>.
+        Dashes and underscores side by side. Cosmetic.
       </p>
     ),
+    rxLabel: "What I’d do",
+    rx: <>Pick one style, redirect the old routes, move on.</>,
   },
 ];
 
@@ -214,50 +238,50 @@ export default function AuditPage() {
       <header className="hero">
         <div className="kicker">
           <span className="label" style={tier("fix")}>
-            Audit // manapool.com · verified against the live site · 01 Aug 2026
+            Audit // manapool.com · first visit · checked against the live site, Aug 2026
           </span>
         </div>
         <h1>
-          A great engine, <em>sold like a spreadsheet.</em>
+          I used Mana Pool for the first time. <em>Here&rsquo;s what I found.</em>
         </h1>
         <p className="standfirst">
-          Mana Pool has already built the hard part:{" "}
-          <strong>a cart optimizer that saves buyers real money</strong>. The site
-          presents it like a database front-end. This audit is about closing that
-          gap.
+          Short version: <strong>the cart optimizer is the best reason to shop
+          here</strong>, and you&rsquo;d never know it from the homepage. One
+          real bug, four things that lose new buyers, four bits of polish. Most
+          of what&rsquo;s below is about closing that gap.
         </p>
       </header>
 
       <div className="band">
         <div className="cell" data-cat="good" style={tier("good")}>
-          <span className="label">Core engine</span>
+          <span className="label">The good news</span>
           <span className="v">Strong</span>
-          <span className="d">Optimizer and mass-entry are best-in-class</span>
+          <span className="d">The optimizer and deck tools really work</span>
         </div>
         <div className="cell" data-cat="fix" style={tier("fix")}>
           <span className="label">Fix first</span>
           <span className="v num">01</span>
-          <span className="d">Reproducible search-latency defect</span>
+          <span className="d">A search bug anyone can reproduce</span>
         </div>
         <div className="cell" data-cat="conv" style={tier("conv")}>
-          <span className="label">Conversion levers</span>
+          <span className="label">Easy wins</span>
           <span className="v num">04</span>
-          <span className="d">Positioning, trust and pricing</span>
+          <span className="d">Where new buyers fall off</span>
         </div>
         <div className="cell" data-cat="craft" style={tier("craft")}>
-          <span className="label">Craft &amp; system</span>
+          <span className="label">Polish</span>
           <span className="v num">04</span>
-          <span className="d">Undifferentiated surface, no design system</span>
+          <span className="d">Small stuff that adds up</span>
         </div>
       </div>
 
       <section className="section" id="strengths">
         <div className="head" style={tier("good")}>
-          <span className="label">01 · What is strong</span>
-          <h2>The hard parts already work</h2>
+          <span className="label">01 · The good parts</span>
+          <h2>What already works</h2>
           <p>
-            A competent, function-first product. Nothing is broken, and the parts
-            that are hard to build already work well. Protect these.
+            Nothing here is broken. The hard stuff is built and it works. This
+            section is short on purpose.
           </p>
         </div>
 
@@ -268,10 +292,10 @@ export default function AuditPage() {
               alt="Mana Pool cart optimizer showing three optimization strategies and a reduced order total"
             />
             <figcaption>
-              <span className="cap-label label">Plate 01 · Cart optimizer</span>
-              <b>The optimizer is the best reason to shop here.</b> Three
-              strategies, progressive results, and it disables the redundant option
-              when carts match.
+              <span className="cap-label label">The cart optimizer</span>
+              <b>This is the killer feature.</b> I pasted a 12-card list and it
+              found three different ways to buy it, then told me which one was
+              cheapest.
               <span className="swing">
                 <s>$25.19 · 10 packages</s> → $15.41 · 2 packages
               </span>
@@ -283,10 +307,10 @@ export default function AuditPage() {
               alt="Mana Pool singles browse page with card art grid and a deep filter rail"
             />
             <figcaption>
-              <span className="cap-label label">Plate 02 · Browse</span>
-              <b>The browse experience is clean.</b> Large readable card art, a deep
-              filter rail (set, foil, condition, colour identity, format), stock and
-              condition badges, and a rarity colour strip. This page does its job.
+              <span className="cap-label label">Browsing</span>
+              <b>Browsing is good.</b> Big card images, lots of filters (set,
+              foil, condition, color, format), clear condition badges. No
+              complaints.
             </figcaption>
           </figure>
         </div>
@@ -295,31 +319,32 @@ export default function AuditPage() {
           <li>
             <span className="mk">A</span>
             <span>
-              <b>Mass-entry parsing works.</b> Decklists parse live, with card
-              thumbnails, multi-format support, a format legend and an invalid-line
-              preview.
+              <b>Deck entry works great.</b> Paste a list, it figures out the
+              format, shows card thumbnails as you type, and flags any line it
+              can&rsquo;t read.
             </span>
           </li>
           <li>
             <span className="mk">B</span>
             <span>
-              <b>Mobile card detail was rebuilt for the small screen.</b> Dense
-              desktop columns become tap-to-expand accordions. Someone cared here.
+              <b>The mobile card pages were actually designed for phones</b>, not
+              just squished down. Dense desktop columns become tap-to-expand
+              sections. Someone cared here.
             </span>
           </li>
           <li>
             <span className="mk">C</span>
             <span>
-              <b>Cart mechanics are mature.</b> Seller grouping, Letter versus
-              Tracked shipping tiers, a free-shipping progress bar, loyalty rewards
-              and an itemised fee breakdown.
+              <b>The cart does a lot of smart things.</b> Groups by seller, shows
+              cheap-letter vs. tracked shipping, a free-shipping progress bar,
+              and a full fee breakdown.
             </span>
           </li>
           <li>
             <span className="mk">D</span>
             <span>
-              <b>Guest checkout already works.</b> Signed out, the cart goes
-              straight through to payment. There is no account wall.
+              <b>Guest checkout just works.</b> Signed out, I went straight to
+              payment. No account wall. A lot of stores get this wrong.
             </span>
           </li>
         </ul>
@@ -327,12 +352,12 @@ export default function AuditPage() {
 
       <section className="section" id="findings">
         <div className="head" style={tier("fix")}>
-          <span className="label">02 · Findings</span>
-          <h2>Ranked by what to fix first</h2>
+          <span className="label">02 · The problems</span>
+          <h2>What I&rsquo;d fix, in order</h2>
           <p>
-            Ordered by impact against effort: one reproducible defect, four
-            conversion levers, four craft items. I reproduced each finding on the
-            live site.
+            One real bug, four things that lose new buyers, four bits of polish.
+            I ran into every one of these myself. Each problem comes with what
+            I&rsquo;d do about it.
           </p>
         </div>
 
@@ -342,14 +367,16 @@ export default function AuditPage() {
               <span className="idx num">{f.idx}</span>
               <div className="body">
                 <h3>{f.title}</h3>
-                {f.body}
+                <div className="duo">
+                  <div className="problem">{f.body}</div>
+                  {f.rx && (
+                    <aside className="fix-card">
+                      <span className="label">{f.rxLabel}</span>
+                      <p>{f.rx}</p>
+                    </aside>
+                  )}
+                </div>
                 {f.evidence}
-                {f.rx && (
-                  <div className="rx">
-                    <span className="label">{f.rxLabel}</span>
-                    {f.rx}
-                  </div>
-                )}
               </div>
               <div className="meta">
                 <span className="sev">{f.sev}</span>
@@ -366,20 +393,20 @@ export default function AuditPage() {
 
       <section className="section" id="method">
         <div className="head" style={tier("meta")}>
-          <span className="label">03 · Method</span>
-          <h2>How this was produced</h2>
+          <span className="label">03 · How I did this</span>
+          <h2>Method, briefly</h2>
           <p>
-            I walked the live site at <b>1512px</b> and <b>390px</b>: homepage,
-            search and autocomplete, singles browse, a card&rsquo;s seller-listing
-            page, add-to-cart, the full cart, the signed-out checkout entry, and the
-            mass-entry to optimizer flow with a real twelve-card list.
+            I went through the whole site on desktop (<b>1512px</b>) and phone
+            (<b>390px</b>): homepage, search, browsing, a card page, the cart,
+            checkout while signed out, and the deck-entry-to-optimizer flow with
+            a real twelve-card list.
           </p>
           <p>
-            I ranked findings by confidence as well as impact. I hit the search bug
-            on four separate queries before writing it up, and I re-verified every
-            finding against the live site on <b>1 August 2026</b>.
+            I hit the search bug on four different queries before writing it up,
+            and rechecked everything against the live site on{" "}
+            <b>August 1, 2026</b>.
           </p>
-          <p>I have no affiliation with Mana Pool, and nobody commissioned this.</p>
+          <p>No connection to Mana Pool. Nobody asked me to do this.</p>
         </div>
       </section>
     </div>
