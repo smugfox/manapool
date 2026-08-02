@@ -1,10 +1,10 @@
 import type { CSSProperties } from "react";
 
-type Mana = "w" | "u" | "b" | "r" | "g";
+type Cat = "fix" | "conv" | "craft" | "good" | "meta";
 
 type Finding = {
   idx: string;
-  mana: Mana;
+  cat: Cat;
   sev: string;
   tags: string[];
   title: string;
@@ -17,7 +17,7 @@ type Finding = {
 const FINDINGS: Finding[] = [
   {
     idx: "01",
-    mana: "r",
+    cat: "fix",
     sev: "Fix first",
     tags: ["Search", "Reproducible"],
     title: "Search autocomplete has no loading state at all",
@@ -31,7 +31,7 @@ const FINDINGS: Finding[] = [
         </p>
         <p>
           The second failure is worse. On a follow-up query the panel keeps showing
-          the <em>previous</em> query&rsquo;s results, with nothing marking them as
+          the <em>previous</em>{" "}query&rsquo;s results, with nothing marking them as
           stale. I typed <b>counters</b> and the panel sat there listing{" "}
           <b>Light of Day</b>, <b>Light of Hope</b> and <b>Light of Judgment</b>.
         </p>
@@ -59,7 +59,7 @@ const FINDINGS: Finding[] = [
   },
   {
     idx: "02",
-    mana: "u",
+    cat: "conv",
     sev: "Conversion",
     tags: ["Homepage", "Positioning"],
     title: "The homepage buries the one thing that makes Mana Pool different",
@@ -85,7 +85,7 @@ const FINDINGS: Finding[] = [
   },
   {
     idx: "03",
-    mana: "u",
+    cat: "conv",
     sev: "Conversion",
     tags: ["Navigation", "Copy"],
     title: "“Mass entry” is insider jargon for the marquee feature",
@@ -102,14 +102,14 @@ const FINDINGS: Finding[] = [
   },
   {
     idx: "04",
-    mana: "u",
+    cat: "conv",
     sev: "Conversion",
     tags: ["Listings", "Trust"],
     title: "Per-seller credibility is good; marketplace-level assurance is missing",
     body: (
       <p>
         Seller rows carry real signal: a verified badge, lifetime sales count,
-        location and a free-shipping flag. There is no <em>marketplace</em> promise
+        location and a free-shipping flag. There is no <em>marketplace</em>{" "}promise
         anywhere near the &ldquo;+ Add&rdquo; control. No buyer protection, no
         condition-accuracy guarantee, no return terms. Multi-seller marketplaces
         live or die on that distinction, and the per-seller badge is the signal a
@@ -121,7 +121,7 @@ const FINDINGS: Finding[] = [
   },
   {
     idx: "05",
-    mana: "u",
+    cat: "conv",
     sev: "Conversion",
     tags: ["Pricing"],
     title: "Fees appear only once the cart is built",
@@ -150,7 +150,7 @@ const FINDINGS: Finding[] = [
   },
   {
     idx: "06",
-    mana: "b",
+    cat: "craft",
     sev: "Craft",
     tags: ["Brand", "Design engineering"],
     title: "The visual brand is undifferentiated",
@@ -165,7 +165,7 @@ const FINDINGS: Finding[] = [
   },
   {
     idx: "07",
-    mana: "b",
+    cat: "craft",
     sev: "Craft",
     tags: ["Consistency"],
     title: "Layouts are spaced by hand",
@@ -179,7 +179,7 @@ const FINDINGS: Finding[] = [
   },
   {
     idx: "08",
-    mana: "b",
+    cat: "craft",
     sev: "Craft",
     tags: ["Navigation"],
     title: "Navigation differs between home and interior pages",
@@ -193,7 +193,7 @@ const FINDINGS: Finding[] = [
   },
   {
     idx: "09",
-    mana: "b",
+    cat: "craft",
     sev: "Craft",
     tags: ["URL hygiene"],
     title: "The URL scheme mixes conventions",
@@ -206,17 +206,16 @@ const FINDINGS: Finding[] = [
   },
 ];
 
-const tier = (m: Mana) => ({ "--tier": `var(--mana-${m})` }) as CSSProperties;
+const tier = (c: Cat) => ({ "--tier": `var(--cat-${c})` }) as CSSProperties;
 
 export default function AuditPage() {
   return (
     <div className="wrap">
       <header className="hero">
         <div className="kicker">
-          <span className="mana-strip" aria-hidden>
-            <i className="w" /><i className="u" /><i className="b" /><i className="r" /><i className="g" />
+          <span className="label" style={tier("fix")}>
+            Audit // manapool.com · verified against the live site · 01 Aug 2026
           </span>
-          <span className="label">Marketplace teardown · Magic: The Gathering</span>
         </div>
         <h1>
           A great engine, <em>sold like a spreadsheet.</em>
@@ -230,22 +229,22 @@ export default function AuditPage() {
       </header>
 
       <div className="band">
-        <div className="cell" data-mana="g" style={tier("g")}>
+        <div className="cell" data-cat="good" style={tier("good")}>
           <span className="label">Core engine</span>
           <span className="v">Strong</span>
           <span className="d">Optimizer and mass-entry are best-in-class</span>
         </div>
-        <div className="cell" data-mana="r" style={tier("r")}>
+        <div className="cell" data-cat="fix" style={tier("fix")}>
           <span className="label">Fix first</span>
           <span className="v num">01</span>
           <span className="d">Reproducible search-latency defect</span>
         </div>
-        <div className="cell" data-mana="u" style={tier("u")}>
+        <div className="cell" data-cat="conv" style={tier("conv")}>
           <span className="label">Conversion levers</span>
           <span className="v num">04</span>
           <span className="d">Positioning, trust and pricing</span>
         </div>
-        <div className="cell" data-mana="b" style={tier("b")}>
+        <div className="cell" data-cat="craft" style={tier("craft")}>
           <span className="label">Craft &amp; system</span>
           <span className="v num">04</span>
           <span className="d">Undifferentiated surface, no design system</span>
@@ -253,7 +252,7 @@ export default function AuditPage() {
       </div>
 
       <section className="section" id="strengths">
-        <div className="head" style={tier("g")}>
+        <div className="head" style={tier("good")}>
           <span className="label">01 · What is strong</span>
           <h2>The hard parts already work</h2>
           <p>
@@ -327,7 +326,7 @@ export default function AuditPage() {
       </section>
 
       <section className="section" id="findings">
-        <div className="head" style={tier("r")}>
+        <div className="head" style={tier("fix")}>
           <span className="label">02 · Findings</span>
           <h2>Ranked by what to fix first</h2>
           <p>
@@ -339,7 +338,7 @@ export default function AuditPage() {
 
         <div className="finds">
           {FINDINGS.map((f) => (
-            <article className="find" style={tier(f.mana)} key={f.idx}>
+            <article className="find" style={tier(f.cat)} key={f.idx}>
               <span className="idx num">{f.idx}</span>
               <div className="body">
                 <h3>{f.title}</h3>
@@ -366,7 +365,7 @@ export default function AuditPage() {
       </section>
 
       <section className="section" id="method">
-        <div className="head" style={tier("w")}>
+        <div className="head" style={tier("meta")}>
           <span className="label">03 · Method</span>
           <h2>How this was produced</h2>
           <p>

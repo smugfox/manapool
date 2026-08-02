@@ -1,93 +1,86 @@
-/* Audit design tokens · Kiri architecture (github.com/smugfox/Kiri-TCG), mana-neutral palette.
-   Ground is aged parchment; the five MTG mana colors carry ALL categorical meaning:
-   R = fix first · U = conversion · B = craft · G = strengths · W = method/meta. */
+/* Audit design tokens · Blueprint direction: dark forensic.
+   Near-black blue-grey ground, IBM Plex, mono-forward labels.
+   Category color carries all meaning:
+   amber = fix first · electric = conversion · slate = craft · green = strengths. */
 
-/* ============ TOKENS ============ */
+/* ============ TOKENS (dark is the default theme) ============ */
 :root {
-  --color-primary: #211C15;
-  --color-on-primary: #F8F5EC;
-  --color-primary-hover: #3A3226;
-  --color-accent: #38648F;             /* island blue: links, interactive emphasis */
-  --color-background: #F1ECE0;         /* parchment: page ground */
-  --color-surface: #F8F5EC;            /* cards and panels */
-  --color-surface-raised: #FDFBF5;     /* inputs, evidence plates */
-  --color-on-surface: #211C15;         /* warm ink */
-  --color-on-surface-muted: #6F675A;
-  --color-border: #E1D8C4;
-  --color-border-strong: #CFC3A8;
-  --shadow-float: 0 8px 32px rgba(33, 28, 21, 0.14);
+  --color-primary: #4FA8FF;
+  --color-on-primary: #0E1116;
+  --color-primary-hover: #79BDFF;
+  --color-accent: #4FA8FF;             /* electric: links, interactive emphasis */
+  --color-background: #0E1116;         /* near-black blue-grey ground */
+  --color-surface: #161C24;            /* cards and panels */
+  --color-surface-raised: #1C232D;     /* inputs, evidence plates */
+  --color-on-surface: #E8EDF2;
+  --color-on-surface-muted: #8A94A0;
+  --color-border: #242C36;
+  --color-border-strong: #39434F;
+  --shadow-float: 0 8px 32px rgba(0, 0, 0, 0.45);
 
-  /* mana pentad (desaturated to sit on parchment) */
-  --mana-w: #9A8A55;
-  --mana-u: #38648F;
-  --mana-b: #524A5C;
-  --mana-r: #A8402F;
-  --mana-g: #47714B;
+  /* category tokens */
+  --cat-fix: #D29922;                  /* amber: the critical finding */
+  --cat-conv: #4FA8FF;                 /* electric: conversion levers */
+  --cat-craft: #98A0B3;                /* slate: craft items */
+  --cat-good: #4EB380;                 /* green: strengths */
+  --cat-meta: #8A94A0;                 /* grey: method, meta */
 
-  /* semantic aliases: sections and severity are coded by color identity */
-  --sev-critical: var(--mana-r);
-  --sev-conversion: var(--mana-u);
-  --sev-craft: var(--mana-b);
-  --color-good: var(--mana-g);
-  --color-meta: var(--mana-w);
-
-  --font-heading: var(--font-newsreader), "Newsreader", Georgia, serif;
-  --font-body: var(--font-geist), "Geist", system-ui, sans-serif;
-  --type-display: 400 60px/1.18 var(--font-heading);
-  --type-display-ls: -0.025em;
-  --type-h1: 400 48px/1.22 var(--font-heading);
-  --type-h1-ls: -0.025em;
-  --type-h2: 400 36px/1.3 var(--font-heading);
-  --type-h2-ls: -0.025em;
-  --type-h3: 400 24px/1.3 var(--font-heading);
-  --type-h3-ls: -0.015em;
-  --type-h4: 500 16px/1.3 var(--font-heading);
-  --type-h4-ls: -0.015em;
+  --font-heading: var(--font-plex-sans), "IBM Plex Sans", system-ui, sans-serif;
+  --font-body: var(--font-plex-sans), "IBM Plex Sans", system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), "IBM Plex Mono", ui-monospace, monospace;
+  --type-display: 600 54px/1.12 var(--font-heading);
+  --type-display-ls: -0.022em;
+  --type-h1: 600 44px/1.16 var(--font-heading);
+  --type-h1-ls: -0.02em;
+  --type-h2: 600 32px/1.25 var(--font-heading);
+  --type-h2-ls: -0.018em;
+  --type-h3: 600 21px/1.3 var(--font-heading);
+  --type-h3-ls: -0.012em;
   --type-body-lg: 400 18px/1.55 var(--font-body);
-  --type-body: 400 16px/1.55 var(--font-body);
-  --type-body-sm: 400 13px/1.5 var(--font-body);
-  --type-caption: 400 11px/1.4 var(--font-body);
+  --type-body: 400 15.5px/1.6 var(--font-body);
+  --type-body-sm: 400 13px/1.55 var(--font-body);
+  --type-caption: 400 11.5px/1.45 var(--font-mono);
   --type-caption-ls: 0.01em;
-  --type-label: 500 10px/1.4 var(--font-body);
-  --type-label-ls: 0.05em;
+  --type-label: 500 10.5px/1.4 var(--font-mono);
+  --type-label-ls: 0.09em;
 
-  --rounded-xs: 4px;
-  --rounded-sm: 8px;
-  --rounded-md: 12px;
-  --rounded-lg: 16px;
+  --rounded-xs: 3px;
+  --rounded-sm: 6px;
+  --rounded-md: 10px;
+  --rounded-lg: 14px;
   --rounded-full: 9999px;
 
   --space-1: 4px;  --space-2: 8px;  --space-3: 12px;
   --space-4: 16px; --space-5: 24px; --space-6: 32px;
   --space-7: 48px; --space-8: 64px; --space-9: 96px;
 
-  --measure: 62ch;
+  --measure: 64ch;
 }
-[data-theme="dark"] {
-  --color-primary: #EDE7DA;
-  --color-on-primary: #16120D;
-  --color-primary-hover: #D8CFBD;
-  --color-accent: #85A9CC;
-  --color-background: #16120D;
-  --color-surface: #1F1A13;
-  --color-surface-raised: #29221A;
-  --color-on-surface: #EDE7DA;
-  --color-on-surface-muted: #A29885;
-  --color-border: #322A20;
-  --color-border-strong: #4A3F30;
-  --shadow-float: 0 8px 32px rgba(0, 0, 0, 0.5);
+[data-theme="light"] {
+  --color-primary: #2270C8;
+  --color-on-primary: #FFFFFF;
+  --color-primary-hover: #1A5CA8;
+  --color-accent: #2270C8;
+  --color-background: #F4F6F8;
+  --color-surface: #FFFFFF;
+  --color-surface-raised: #FAFBFC;
+  --color-on-surface: #161B22;
+  --color-on-surface-muted: #57606A;
+  --color-border: #D8DEE4;
+  --color-border-strong: #B9C2CC;
+  --shadow-float: 0 8px 32px rgba(22, 27, 34, 0.12);
 
-  --mana-w: #C4B37D;
-  --mana-u: #7BA2C7;
-  --mana-b: #A99EB5;
-  --mana-r: #D07A62;
-  --mana-g: #8CB287;
+  --cat-fix: #9A6E10;
+  --cat-conv: #2270C8;
+  --cat-craft: #6E7787;
+  --cat-good: #2E8B60;
+  --cat-meta: #57606A;
 }
 
 /* ============ base ============ */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html { color-scheme: light; scroll-behavior: smooth; }
-[data-theme="dark"] { color-scheme: dark; }
+html { color-scheme: dark; scroll-behavior: smooth; }
+[data-theme="light"] { color-scheme: light; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 body {
   background: var(--color-background);
@@ -108,20 +101,8 @@ h3 { font: var(--type-h3); letter-spacing: var(--type-h3-ls); text-wrap: balance
 
 .wrap { max-width: 1080px; margin: 0 auto; padding: 0 var(--space-5); }
 .label {
-  font: var(--type-label); font-family: var(--font-body);
+  font: var(--type-label); font-family: var(--font-mono);
   letter-spacing: var(--type-label-ls); text-transform: uppercase;
   color: var(--color-on-surface-muted);
 }
 .num { font-variant-numeric: tabular-nums; }
-
-/* ============ mana strip (signature element) ============ */
-.mana-strip { display: flex; gap: 5px; }
-.mana-strip i {
-  width: 30px; height: 5px; border-radius: 3px;
-  box-shadow: inset 0 0 0 1px rgba(33, 28, 21, 0.12);
-}
-.mana-strip .w { background: var(--mana-w); }
-.mana-strip .u { background: var(--mana-u); }
-.mana-strip .b { background: var(--mana-b); }
-.mana-strip .r { background: var(--mana-r); }
-.mana-strip .g { background: var(--mana-g); }

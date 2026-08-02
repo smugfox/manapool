@@ -8,18 +8,17 @@ export const metadata: Metadata = {
     "The three highest-return design moves for manapool.com, with a working fix for the search defect.",
 };
 
-const tier = (m: "w" | "u" | "b" | "r" | "g") =>
-  ({ "--tier": `var(--mana-${m})` }) as CSSProperties;
+const tier = (c: "fix" | "conv" | "craft" | "good" | "meta") =>
+  ({ "--tier": `var(--cat-${c})` }) as CSSProperties;
 
 export default function ImprovementsPage() {
   return (
     <div className="wrap">
       <header className="hero">
         <div className="kicker">
-          <span className="mana-strip" aria-hidden>
-            <i className="w" /><i className="u" /><i className="b" /><i className="r" /><i className="g" />
+          <span className="label" style={tier("fix")}>
+            Proposals // ranked by expected return
           </span>
-          <span className="label">Proposals · ranked by expected return</span>
         </div>
         <h1>
           What I&rsquo;d build, <em>in order.</em>
@@ -32,7 +31,7 @@ export default function ImprovementsPage() {
       </header>
 
       <div className="rungs">
-        <article className="rung" style={tier("r")} id="search">
+        <article className="rung" style={tier("fix")} id="search">
           <div className="top">
             <span className="idx num">0</span>
             <h3>First, the defect: give search a loading state</h3>
@@ -48,13 +47,13 @@ export default function ImprovementsPage() {
             a working version of the fix.
           </p>
           <div className="ba">
-            <div className="pane" style={tier("r")}>
+            <div className="pane" style={tier("fix")}>
               <div className="bar">Today, on manapool.com</div>
               <video autoPlay loop muted playsInline preload="metadata" aria-label="Screen recording of manapool.com search opening an empty, transparent suggestions panel">
                 <source src="/media/search-no-loading-state.mp4" type="video/mp4" />
               </video>
             </div>
-            <div className="pane" style={tier("g")}>
+            <div className="pane" style={tier("good")}>
               <div className="bar">The fix, working — try it</div>
               <div className="inner">
                 <SearchDemo />
@@ -63,7 +62,7 @@ export default function ImprovementsPage() {
           </div>
         </article>
 
-        <article className="rung" style={tier("u")}>
+        <article className="rung" style={tier("conv")}>
           <div className="top">
             <span className="idx num">1</span>
             <h3>Homepage and optimizer storytelling</h3>
@@ -78,7 +77,7 @@ export default function ImprovementsPage() {
             cheapest large win at the top of the funnel.
           </p>
           <div className="ba">
-            <div className="pane" style={tier("b")}>
+            <div className="pane" style={tier("craft")}>
               <div className="bar">Today&rsquo;s hero</div>
               <div className="inner">
                 <p style={{ font: "var(--type-h3)", letterSpacing: "var(--type-h3-ls)" }}>
@@ -91,7 +90,7 @@ export default function ImprovementsPage() {
                 </p>
               </div>
             </div>
-            <div className="pane" style={tier("g")}>
+            <div className="pane" style={tier("good")}>
               <div className="bar">Proposed hero</div>
               <div className="inner">
                 <p style={{ font: "var(--type-h3)", letterSpacing: "var(--type-h3-ls)" }}>
@@ -107,7 +106,7 @@ export default function ImprovementsPage() {
           </div>
         </article>
 
-        <article className="rung" style={tier("u")}>
+        <article className="rung" style={tier("conv")}>
           <div className="top">
             <span className="idx num">2</span>
             <h3>Trust and pricing at the point of decision</h3>
@@ -126,7 +125,7 @@ export default function ImprovementsPage() {
           </p>
         </article>
 
-        <article className="rung" style={tier("b")}>
+        <article className="rung" style={tier("craft")}>
           <div className="top">
             <span className="idx num">3</span>
             <h3>A lightweight design system</h3>
@@ -139,8 +138,8 @@ export default function ImprovementsPage() {
             Tokens, a type scale and a component kit, so consistent, branded UI
             ships fast. On a small team, this work speeds up everything built after
             it. This site is the demonstration: every colour, type style and
-            spacing step on these two pages comes from one token file, themed light
-            and dark, with the five mana colours carrying all categorical meaning.
+            spacing step on these two pages comes from one token file, themed dark
+            and light, with category colour carrying severity throughout.
           </p>
         </article>
       </div>

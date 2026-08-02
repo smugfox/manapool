@@ -1,20 +1,21 @@
 import type { Metadata } from "next";
-import { Newsreader, Geist } from "next/font/google";
+import { IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
 import "./globals.css";
 import "@/styles/components.css";
 
-const newsreader = Newsreader({
+const plexSans = IBM_Plex_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
   style: ["normal", "italic"],
-  variable: "--font-newsreader",
+  variable: "--font-plex-sans",
 });
 
-const geist = Geist({
+const plexMono = IBM_Plex_Mono({
   subsets: ["latin"],
-  variable: "--font-geist",
+  weight: ["400", "500"],
+  variable: "--font-plex-mono",
 });
 
 export const metadata: Metadata = {
@@ -30,15 +31,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      data-theme="light"
+      data-theme="dark"
       suppressHydrationWarning
-      className={`${newsreader.variable} ${geist.variable}`}
+      className={`${plexSans.variable} ${plexMono.variable}`}
     >
       <body>
         <script
           // apply the persisted theme before first paint so there is no flash
           dangerouslySetInnerHTML={{
-            __html: `try{if(localStorage.getItem('mp-audit-theme')==='dark')document.documentElement.dataset.theme='dark'}catch(e){}`,
+            __html: `try{if(localStorage.getItem('mp-audit-theme')==='light')document.documentElement.dataset.theme='light'}catch(e){}`,
           }}
         />
         <SiteNav />

@@ -2,19 +2,19 @@
 
 import { useEffect, useRef, useState } from "react";
 
-type Card = { name: string; set: string; price: string; mana: "w" | "u" | "b" | "r" | "g" };
+type Card = { name: string; set: string; price: string };
 
 const CARDS: Card[] = [
-  { name: "Lightning Bolt", set: "Ravnica: Clue Edition", price: "$1.49", mana: "r" },
-  { name: "Light of Day", set: "Battle for Zendikar", price: "$0.15", mana: "w" },
-  { name: "Light of Hope", set: "Modern Horizons 3", price: "$0.12", mana: "w" },
-  { name: "Counterspell", set: "Commander Masters", price: "$2.16", mana: "u" },
-  { name: "Counterbalance", set: "Coldsnap", price: "$8.40", mana: "u" },
-  { name: "Countersquall", set: "Conflux", price: "$0.79", mana: "b" },
-  { name: "Llanowar Elves", set: "Dominaria", price: "$0.25", mana: "g" },
-  { name: "Dark Ritual", set: "Mystical Archive", price: "$2.99", mana: "b" },
-  { name: "Swords to Plowshares", set: "Eternal Masters", price: "$3.10", mana: "w" },
-  { name: "Brainstorm", set: "Mystical Archive", price: "$1.85", mana: "u" },
+  { name: "Lightning Bolt", set: "Ravnica: Clue Edition", price: "$1.49" },
+  { name: "Light of Day", set: "Battle for Zendikar", price: "$0.15" },
+  { name: "Light of Hope", set: "Modern Horizons 3", price: "$0.12" },
+  { name: "Counterspell", set: "Commander Masters", price: "$2.16" },
+  { name: "Counterbalance", set: "Coldsnap", price: "$8.40" },
+  { name: "Countersquall", set: "Conflux", price: "$0.79" },
+  { name: "Llanowar Elves", set: "Dominaria", price: "$0.25" },
+  { name: "Dark Ritual", set: "Mystical Archive", price: "$2.99" },
+  { name: "Swords to Plowshares", set: "Eternal Masters", price: "$3.10" },
+  { name: "Brainstorm", set: "Mystical Archive", price: "$1.85" },
 ];
 
 /** The proposed fix for finding 01, working: skeleton on open, previous
@@ -71,7 +71,7 @@ export default function SearchDemo() {
             </>
           ) : results.length > 0 ? (
             results.map((c) => (
-              <div className="demo-row" key={c.name} data-mana={c.mana}>
+              <div className="demo-row" key={c.name}>
                 <span className="thumb" aria-hidden />
                 <span>
                   <span className="nm">{c.name}</span>
