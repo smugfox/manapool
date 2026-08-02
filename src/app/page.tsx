@@ -41,24 +41,27 @@ const WINS = [
     body: (
       <p>
         Each seller shows a verified badge, a sales count and a location, which
-        helps. But nowhere near the &ldquo;+ Add&rdquo; button does the site say
-        what happens if my card shows up damaged, or never shows up at all. No
-        buyer protection, no condition guarantee, no return policy. For a first
-        order from a store I&rsquo;d never heard of, that&rsquo;s the thing I
-        actually wanted to know.
+        helps. And it turns out Mana Pool has a real{" "}
+        <a href="https://manapool.com/return-policy">return policy</a>: damaged
+        cards, wrong cards, condition disputes, all covered, with Mana Pool as
+        the final arbiter. I found that out later, from a footer link. Nowhere
+        near the &ldquo;+ Add&rdquo; button does the site mention any of it. For
+        a first order from a store I&rsquo;d never heard of, that&rsquo;s the
+        exact moment I wanted to know.
       </p>
     ),
-    rx: "Put one line of buyer protection right next to add-to-cart — “Every order covered” with a link to the policy. It answers the question at the exact moment a new buyer is asking it.",
+    rx: "Put one line next to add-to-cart: “Every order covered by our return policy”, linked. The protection already exists. It just needs to show up where the doubt happens.",
   },
   {
     title: "The fees and shipping show up at the end",
     body: (
       <>
         <p>
-          There&rsquo;s a &ldquo;Singles Fee&rdquo; you only learn about at the
-          cart. So prices everywhere else look a little cheaper than they really
-          are, which is exactly the kind of thing TCGplayer or Cardmarket could
-          poke at.
+          There&rsquo;s a &ldquo;Singles Fee&rdquo; that first shows up in the
+          cart&rsquo;s order summary. It is documented, but in a help article.
+          While you browse, prices look a little cheaper than what you&rsquo;ll
+          actually pay, which is exactly the kind of thing TCGplayer or
+          Cardmarket could poke at.
         </p>
         <p>
           My own cart made the case. Twelve cards:{" "}
@@ -73,7 +76,7 @@ const WINS = [
 ];
 
 const POLISH = [
-  { what: "It looks like every other card site", why: "Default fonts, default blues and greens. Forgettable next to TCGplayer, Card Kingdom, Cardmarket.", fix: "a small visual system — type scale, spacing, an accent color, real icons." },
+  { what: "It looks like every other card site", why: "Default fonts, default blues and greens. Forgettable next to TCGplayer, Card Kingdom, Cardmarket.", fix: "a small visual system: type scale, spacing, an accent color, real icons." },
   { what: "Spacing is inconsistent between screens", why: "Odd empty space inside components; gaps that don’t match page to page.", fix: "shared spacing tokens, so the drift stops for good." },
   { what: "The nav changes between pages", why: "Full menu on the homepage, hamburger everywhere else, same window width.", fix: "one shared header component, used everywhere." },
   { what: "URLs mix two naming styles", why: "/cards, /browse_sealed, /add-deck, /auth. Dashes and underscores side by side.", fix: "pick one style and redirect the old routes." },
@@ -85,7 +88,7 @@ export default function AuditPage() {
       <header className="hero">
         <div className="kicker">
           <span className="label" style={tier("fix")}>
-            An audit of manapool.com — first visit, checked against the live site, August 2026
+            An audit of manapool.com. First visit, checked against the live site, August 2026.
           </span>
         </div>
         <h1>
@@ -223,20 +226,20 @@ export default function AuditPage() {
                 <p>
                   Show a loading skeleton the moment the panel opens, and gray
                   out old results while new ones load. It&rsquo;s a small fix,
-                  and I built it. That&rsquo;s it below on the right — try it.
+                  and I built it. That&rsquo;s it below on the right. Try it.
                 </p>
               </div>
 
               <div className="ba">
                 <div className="pane" style={tier("fix")}>
-                  <div className="bar">Today, on manapool.com — recorded live</div>
+                  <div className="bar">Today on manapool.com, recorded live</div>
                   <MediaZoom
                     src="/media/search-no-loading-state.mp4"
                     label="Screen recording of manapool.com search: the suggestions panel opens fully empty and transparent, then results appear a second later"
                   />
                 </div>
                 <div className="pane" style={tier("good")}>
-                  <div className="bar">The fix, working — try it</div>
+                  <div className="bar">The fix, working. Try it</div>
                   <div className="inner">
                     <SearchDemo />
                   </div>
@@ -334,7 +337,7 @@ export default function AuditPage() {
                 <div>
                   <h3>Put the optimizer on the homepage</h3>
                   <p>
-                    Paste a deck, watch the price drop — live, above the fold.
+                    Paste a deck and watch the price drop, live, above the fold.
                     $25.19 across 10 packages becomes $15.41 across 2. Shown,
                     not claimed.
                   </p>
@@ -372,7 +375,7 @@ export default function AuditPage() {
           <section className="chapter" id="about">
             <div className="head" style={tier("good")}>
               <span className="label">Part 7 · About me</span>
-              <h2>Hi — I&rsquo;m Robin.</h2>
+              <h2>Hi, I&rsquo;m Robin.</h2>
               <p>
                 I&rsquo;m a senior product designer who builds what I design.
                 This site is an example: one token file, two themes, the working

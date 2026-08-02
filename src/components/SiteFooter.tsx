@@ -3,7 +3,7 @@ export default function SiteFooter() {
     <footer className="site-footer">
       <div className="wrap row">
         <span>
-          Not affiliated with Mana Pool — just a first visit, written down ·
+          Not affiliated with Mana Pool. Just a first visit, written down.
           August 2026
         </span>
         <span>

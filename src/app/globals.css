@@ -43,11 +43,11 @@
   --type-label: 500 13.5px/1.4 var(--font-body);
   --type-label-ls: 0em;
 
-  --rounded-xs: 3px;
-  --rounded-sm: 6px;
-  --rounded-md: 10px;
-  --rounded-lg: 14px;
-  --rounded-full: 9999px;
+  --rounded-xs: 0;
+  --rounded-sm: 0;
+  --rounded-md: 0;
+  --rounded-lg: 0;
+  --rounded-full: 0;
 
   --space-1: 4px;  --space-2: 8px;  --space-3: 12px;
   --space-4: 16px; --space-5: 24px; --space-6: 32px;
@@ -92,7 +92,7 @@ body {
 a { color: var(--color-accent); text-decoration: none; }
 a:hover { text-decoration: underline; text-underline-offset: 3px; }
 img, video { max-width: 100%; display: block; }
-:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; border-radius: 2px; }
+:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; }
 
 h1 { font: var(--type-h1); letter-spacing: var(--type-h1-ls); text-wrap: balance; }
 h2 { font: var(--type-h2); letter-spacing: var(--type-h2-ls); text-wrap: balance; }

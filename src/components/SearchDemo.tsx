@@ -19,7 +19,7 @@ const CARDS: Card[] = [
 
 /** The proposed fix for finding 01, working: skeleton on open, previous
  * results held dimmed while the next query resolves. Latency is simulated
- * at 650ms — slower than the real endpoint, so the states are visible. */
+ * at 650ms, slower than the real endpoint, so the states are visible. */
 export default function SearchDemo() {
   const [q, setQ] = useState("");
   const [results, setResults] = useState<Card[]>([]);
