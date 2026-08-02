@@ -1,5 +1,6 @@
 import type { CSSProperties } from "react";
 import ChapNav from "@/components/ChapNav";
+import MediaZoom from "@/components/MediaZoom";
 import SearchDemo from "@/components/SearchDemo";
 
 type Cat = "fix" | "conv" | "craft" | "good" | "meta";
@@ -72,10 +73,10 @@ const WINS = [
 ];
 
 const POLISH = [
-  { what: "It looks like every other card site", why: "Default fonts, default blues and greens. Forgettable next to TCGplayer, Card Kingdom, Cardmarket.", fix: "A small visual system: type scale, spacing, an accent, real icons." },
-  { what: "Spacing is inconsistent between screens", why: "Odd empty space inside components; gaps that don’t match page to page.", fix: "Shared spacing tokens. The drift stops for good." },
-  { what: "The nav changes between pages", why: "Full menu on the homepage, hamburger everywhere else, same window width.", fix: "One shared header component." },
-  { what: "URLs mix two naming styles", why: "/cards, /browse_sealed, /add-deck, /auth. Dashes and underscores side by side.", fix: "Pick one, redirect the old routes." },
+  { what: "It looks like every other card site", why: "Default fonts, default blues and greens. Forgettable next to TCGplayer, Card Kingdom, Cardmarket.", fix: "a small visual system — type scale, spacing, an accent color, real icons." },
+  { what: "Spacing is inconsistent between screens", why: "Odd empty space inside components; gaps that don’t match page to page.", fix: "shared spacing tokens, so the drift stops for good." },
+  { what: "The nav changes between pages", why: "Full menu on the homepage, hamburger everywhere else, same window width.", fix: "one shared header component, used everywhere." },
+  { what: "URLs mix two naming styles", why: "/cards, /browse_sealed, /add-deck, /auth. Dashes and underscores side by side.", fix: "pick one style and redirect the old routes." },
 ];
 
 export default function AuditPage() {
@@ -84,7 +85,7 @@ export default function AuditPage() {
       <header className="hero">
         <div className="kicker">
           <span className="label" style={tier("fix")}>
-            Audit // manapool.com · first visit · checked against the live site, Aug 2026
+            An audit of manapool.com — first visit, checked against the live site, August 2026
           </span>
         </div>
         <h1>
@@ -111,12 +112,12 @@ export default function AuditPage() {
         </div>
         <div className="cell" data-cat="conv" style={tier("conv")}>
           <span className="label">Easy wins</span>
-          <span className="v num">04</span>
+          <span className="v num">4</span>
           <span className="d">Where new buyers fall off</span>
         </div>
         <div className="cell" data-cat="craft" style={tier("craft")}>
           <span className="label">Polish</span>
-          <span className="v num">04</span>
+          <span className="v num">4</span>
           <span className="d">Small stuff, displayed small</span>
         </div>
       </div>
@@ -126,7 +127,7 @@ export default function AuditPage() {
         <main>
           <section className="chapter" id="good">
             <div className="head" style={tier("good")}>
-              <span className="label">01 · The good parts</span>
+              <span className="label">Part 1 · The good parts</span>
               <h2>What already works</h2>
               <p>
                 Nothing here is broken. The hard stuff is built and it works.
@@ -144,10 +145,9 @@ export default function AuditPage() {
                   <span className="cap-label label">The cart optimizer</span>
                   <b>This is the killer feature.</b> I pasted a 12-card list and
                   it found three different ways to buy it, then told me which one
-                  was cheapest.
-                  <span className="swing">
-                    <s>$25.19 · 10 packages</s> → $15.41 · 2 packages
-                  </span>
+                  was cheapest:{" "}
+                  <span className="save">$25.19 in ten packages came down to
+                  $15.41 in two.</span>
                 </figcaption>
               </figure>
               <figure className="plate">
@@ -166,7 +166,6 @@ export default function AuditPage() {
 
             <ul className="keeps">
               <li>
-                <span className="mk">A</span>
                 <span>
                   <b>Deck entry works great.</b> Paste a list, it figures out the
                   format, shows card thumbnails as you type, and flags any line
@@ -174,7 +173,6 @@ export default function AuditPage() {
                 </span>
               </li>
               <li>
-                <span className="mk">B</span>
                 <span>
                   <b>The mobile card pages were actually designed for phones</b>,
                   not just squished down. Dense desktop columns become
@@ -182,7 +180,6 @@ export default function AuditPage() {
                 </span>
               </li>
               <li>
-                <span className="mk">C</span>
                 <span>
                   <b>The cart does a lot of smart things.</b> Groups by seller,
                   shows cheap-letter vs. tracked shipping, a free-shipping
@@ -190,7 +187,6 @@ export default function AuditPage() {
                 </span>
               </li>
               <li>
-                <span className="mk">D</span>
                 <span>
                   <b>Guest checkout just works.</b> Signed out, I went straight
                   to payment. No account wall. A lot of stores get this wrong.
@@ -201,7 +197,7 @@ export default function AuditPage() {
 
           <section className="chapter" id="bug">
             <div className="head" style={tier("fix")}>
-              <span className="label">02 · The bug</span>
+              <span className="label">Part 2 · The bug</span>
               <h2>Search looks broken the first time you use it</h2>
             </div>
 
@@ -234,9 +230,10 @@ export default function AuditPage() {
               <div className="ba">
                 <div className="pane" style={tier("fix")}>
                   <div className="bar">Today, on manapool.com — recorded live</div>
-                  <video autoPlay loop muted playsInline preload="metadata" aria-label="Screen recording of manapool.com search: the suggestions panel opens fully empty and transparent, then results appear a second later">
-                    <source src="/media/search-no-loading-state.mp4" type="video/mp4" />
-                  </video>
+                  <MediaZoom
+                    src="/media/search-no-loading-state.mp4"
+                    label="Screen recording of manapool.com search: the suggestions panel opens fully empty and transparent, then results appear a second later"
+                  />
                 </div>
                 <div className="pane" style={tier("good")}>
                   <div className="bar">The fix, working — try it</div>
@@ -250,7 +247,7 @@ export default function AuditPage() {
 
           <section className="chapter" id="wins">
             <div className="head" style={tier("conv")}>
-              <span className="label">03 · Easy wins</span>
+              <span className="label">Part 3 · Easy wins</span>
               <h2>Where new buyers fall off</h2>
               <p>
                 Four things that cost sales, none of them hard to change. I ran
@@ -273,7 +270,7 @@ export default function AuditPage() {
 
           <section className="chapter" id="polish">
             <div className="head" style={tier("craft")}>
-              <span className="label">04 · Polish</span>
+              <span className="label">Part 4 · Polish</span>
               <h2>Small stuff, displayed small</h2>
               <p>
                 None of these lose a sale on their own. Together they&rsquo;re
@@ -283,12 +280,12 @@ export default function AuditPage() {
             </div>
             <div className="quick">
               {POLISH.map((p) => (
-                <div className="row" key={p.what}>
-                  <div className="what">
-                    <b>{p.what}</b>
-                    <span>{p.why}</span>
-                  </div>
-                  <div className="fix">{p.fix}</div>
+                <div className="item" key={p.what}>
+                  <b>{p.what}</b>
+                  <p>{p.why}</p>
+                  <p className="do">
+                    <strong>The fix:</strong> {p.fix}
+                  </p>
                 </div>
               ))}
             </div>
@@ -296,7 +293,7 @@ export default function AuditPage() {
 
           <section className="chapter" id="method">
             <div className="head" style={tier("meta")}>
-              <span className="label">05 · How I did this</span>
+              <span className="label">Part 5 · How I did this</span>
               <h2>Method, briefly</h2>
               <p>
                 I went through the whole site on desktop (<b>1512px</b>) and

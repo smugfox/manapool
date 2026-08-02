@@ -38,10 +38,10 @@
   --type-body-lg: 400 18px/1.6 var(--font-body);
   --type-body: 400 16px/1.65 var(--font-body);
   --type-body-sm: 400 13.5px/1.55 var(--font-body);
-  --type-caption: 400 11.5px/1.45 var(--font-mono);
-  --type-caption-ls: 0.01em;
-  --type-label: 500 10.5px/1.4 var(--font-mono);
-  --type-label-ls: 0.09em;
+  --type-caption: 400 13px/1.5 var(--font-body);
+  --type-caption-ls: 0em;
+  --type-label: 500 13.5px/1.4 var(--font-body);
+  --type-label-ls: 0em;
 
   --rounded-xs: 3px;
   --rounded-sm: 6px;
@@ -100,8 +100,7 @@ h3 { font: var(--type-h3); letter-spacing: var(--type-h3-ls); text-wrap: balance
 
 .wrap { max-width: 1040px; margin: 0 auto; padding: 0 var(--space-5); }
 .label {
-  font: var(--type-label); font-family: var(--font-mono);
-  letter-spacing: var(--type-label-ls); text-transform: uppercase;
+  font: var(--type-label);
   color: var(--color-on-surface-muted);
 }
 .num { font-variant-numeric: tabular-nums; }

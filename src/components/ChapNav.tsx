@@ -3,11 +3,11 @@
 import { useEffect, useState } from "react";
 
 const CHAPTERS = [
-  { id: "good", n: "01", label: "The good" },
-  { id: "bug", n: "02", label: "The bug" },
-  { id: "wins", n: "03", label: "Easy wins" },
-  { id: "polish", n: "04", label: "Polish" },
-  { id: "method", n: "05", label: "Method" },
+  { id: "good", label: "The good parts" },
+  { id: "bug", label: "The bug" },
+  { id: "wins", label: "Easy wins" },
+  { id: "polish", label: "Polish" },
+  { id: "method", label: "Method" },
 ];
 
 /** Sticky chapter rail with scroll-spy. Hidden under 1100px via CSS. */
@@ -44,8 +44,7 @@ export default function ChapNav() {
         {CHAPTERS.map((c) => (
           <li key={c.id}>
             <a href={`#${c.id}`} aria-current={active === c.id ? "true" : undefined}>
-              <span className="num">{c.n}</span>
-              <span>{c.label}</span>
+              {c.label}
             </a>
           </li>
         ))}
