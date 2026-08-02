@@ -307,7 +307,8 @@ export default function AuditPage() {
               <p>
                 I hit the search bug on four different queries before writing it
                 up, and rechecked everything against the live site on{" "}
-                <b>August 1, 2026</b>.
+                <b>August 1, 2026</b>. I also read the terms and the return
+                policy, which corrected one of my own first impressions.
               </p>
               <p>No connection to Mana Pool. Nobody asked me to do this.</p>
             </div>
@@ -386,8 +387,8 @@ export default function AuditPage() {
                 I&rsquo;ve loved trading card games most of my life, Magic
                 especially, which is how I ended up in Mana Pool&rsquo;s
                 checkout in the first place. I wrote this because I think the
-                team has already built the hard part, and I&rsquo;d genuinely
-                enjoy helping make it the best place on the internet to buy
+                team has already built the hard part, and I&rsquo;d love to
+                help make it the best place on the internet to buy
                 Magic cards. The four moves above are a start; I have more in
                 the pipeline than fits on this page.
               </p>
