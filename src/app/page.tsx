@@ -143,7 +143,7 @@ export default function AuditPage() {
                 />
                 <figcaption>
                   <span className="cap-label label">The cart optimizer</span>
-                  <b>This is the killer feature.</b> I pasted a 12-card list and
+                  <b>This is a killer feature.</b> I pasted a 12-card list and
                   it found three different ways to buy it, then told me which one
                   was cheapest:{" "}
                   <span className="save">$25.19 in ten packages came down to

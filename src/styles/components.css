@@ -171,7 +171,7 @@
   background: rgba(20, 26, 38, 0.72); border-radius: var(--rounded-full);
   padding: 6px 12px; pointer-events: none;
 }
-.lightbox { border: 0; padding: 0; background: transparent; max-width: min(1240px, 94vw); cursor: zoom-out; }
+.lightbox { margin: auto; border: 0; padding: 0; background: transparent; max-width: min(1240px, 94vw); cursor: zoom-out; }
 .lightbox video { width: 100%; height: auto; border-radius: var(--rounded-md); display: block; }
 .lightbox::backdrop { background: rgba(12, 18, 28, 0.78); }
 
