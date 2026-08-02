@@ -57,9 +57,9 @@
 }
 .band .cell { padding: var(--space-5) var(--space-5) var(--space-5) 0; border-left: 1px solid var(--color-border); padding-left: var(--space-5); }
 .band .cell:first-child { border-left: none; padding-left: 0; }
-.band .v { font: 400 38px/1.1 var(--font-heading); letter-spacing: -0.02em; margin: var(--space-2) 0; display: block; }
+.band .v { font: 600 38px/1.1 var(--font-heading); letter-spacing: -0.02em; margin: var(--space-2) 0; display: block; }
 .band .cell[data-cat] .v { color: var(--tier); }
-.band .d { font: var(--type-body-sm); color: var(--color-on-surface-muted); }
+.band .d { font: 400 15px/1.5 var(--font-body); color: var(--color-on-surface-muted); }
 
 /* category tiers (Kiri --tier pattern) */
 [data-cat="fix"] { --tier: var(--cat-fix); }
