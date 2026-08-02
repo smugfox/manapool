@@ -31,7 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      data-theme="dark"
+      data-theme="light"
       suppressHydrationWarning
       className={`${plexSans.variable} ${plexMono.variable}`}
     >
@@ -39,7 +39,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script
           // apply the persisted theme before first paint so there is no flash
           dangerouslySetInnerHTML={{
-            __html: `try{if(localStorage.getItem('mp-audit-theme')==='light')document.documentElement.dataset.theme='light'}catch(e){}`,
+            __html: `try{if(localStorage.getItem('mp-audit-theme')==='dark')document.documentElement.dataset.theme='dark'}catch(e){}`,
           }}
         />
         <SiteNav />

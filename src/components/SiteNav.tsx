@@ -20,7 +20,7 @@ export default function SiteNav() {
             href="/improvements"
             className={path === "/improvements" ? "active" : undefined}
           >
-            What I&rsquo;d build
+            The plan
           </Link>
         </div>
         <ThemeToggle />
