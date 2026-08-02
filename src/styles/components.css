@@ -127,7 +127,7 @@
   font: var(--type-label); color: var(--tier);
 }
 .finding .eyebrow::before { content: ""; width: 9px; height: 9px; background: var(--tier); flex: none; }
-.finding h3 { margin-bottom: var(--space-4); max-width: 30ch; }
+.finding h3 { margin-bottom: var(--space-4); max-width: var(--measure); }
 .finding .prose { max-width: var(--measure); }
 .finding .prose p { color: var(--color-on-surface-muted); }
 .finding .prose p + p { margin-top: var(--space-3); }
