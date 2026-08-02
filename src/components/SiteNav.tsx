@@ -1,11 +1,7 @@
-"use client";
-
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import ThemeToggle from "./ThemeToggle";
 
 export default function SiteNav() {
-  const path = usePathname();
   return (
     <nav className="site-nav">
       <div className="wrap row">
@@ -13,15 +9,8 @@ export default function SiteNav() {
           Mana Pool <span className="tag">Independent audit</span>
         </Link>
         <div className="links">
-          <Link href="/" className={path === "/" ? "active" : undefined}>
-            The audit
-          </Link>
-          <Link
-            href="/improvements"
-            className={path === "/improvements" ? "active" : undefined}
-          >
-            The plan
-          </Link>
+          <a href="/#plan">The plan</a>
+          <a href="/#about">About me</a>
         </div>
         <ThemeToggle />
       </div>

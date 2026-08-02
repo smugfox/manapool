@@ -309,6 +309,91 @@ export default function AuditPage() {
               <p>No connection to Mana Pool. Nobody asked me to do this.</p>
             </div>
           </section>
+
+          <section className="chapter" id="plan">
+            <div className="head" style={tier("fix")}>
+              <span className="label">Part 6 · The plan</span>
+              <h2>If it were mine, here&rsquo;s the order</h2>
+              <p>Everything above, boiled down to four moves.</p>
+            </div>
+            <ol className="plan">
+              <li style={tier("fix")}>
+                <span className="n num">1</span>
+                <div>
+                  <h3>Fix the search bug</h3>
+                  <p>
+                    Skeleton on open, gray out stale results. A day of work, and
+                    the site stops looking broken at its most-used control.{" "}
+                    <a href="#bug">The fix is already built and running above.</a>
+                  </p>
+                  <p className="tags">Engineering · Small</p>
+                </div>
+              </li>
+              <li style={tier("conv")}>
+                <span className="n num">2</span>
+                <div>
+                  <h3>Put the optimizer on the homepage</h3>
+                  <p>
+                    Paste a deck, watch the price drop — live, above the fold.
+                    $25.19 across 10 packages becomes $15.41 across 2. Shown,
+                    not claimed.
+                  </p>
+                  <p className="tags">Product design · No engineering</p>
+                </div>
+              </li>
+              <li style={tier("conv")}>
+                <span className="n num">3</span>
+                <div>
+                  <h3>Answer &ldquo;can I trust this?&rdquo; before the cart</h3>
+                  <p>
+                    One line of buyer protection next to add-to-cart, and honest
+                    all-in prices before checkout. Guest checkout is already
+                    good; these are the two pieces missing around it.
+                  </p>
+                  <p className="tags">Product design · Light engineering</p>
+                </div>
+              </li>
+              <li style={tier("craft")}>
+                <span className="n num">4</span>
+                <div>
+                  <h3>A small design system</h3>
+                  <p>
+                    Tokens, a type scale, a component kit. Fixes all four polish
+                    items at once and speeds up everything built after it. This
+                    site runs on exactly that: one token file, two themes,
+                    color-coded severity.
+                  </p>
+                  <p className="tags">Design engineering · Pays off forever</p>
+                </div>
+              </li>
+            </ol>
+          </section>
+
+          <section className="chapter" id="about">
+            <div className="head" style={tier("good")}>
+              <span className="label">Part 7 · About me</span>
+              <h2>Hi — I&rsquo;m Robin.</h2>
+              <p>
+                I&rsquo;m a senior product designer who builds what I design.
+                This site is an example: one token file, two themes, the working
+                search fix, all written by hand. The rest of my work is at{" "}
+                <a href="https://mrkitsune.com/">mrkitsune.com</a>.
+              </p>
+              <p>
+                I&rsquo;ve loved trading card games most of my life, Magic
+                especially, which is how I ended up in Mana Pool&rsquo;s
+                checkout in the first place. I wrote this because I think the
+                team has already built the hard part, and I&rsquo;d genuinely
+                enjoy helping make it the best place on the internet to buy
+                Magic cards. The four moves above are a start; I have more in
+                the pipeline than fits on this page.
+              </p>
+              <p>
+                If any of this was useful, my inbox is open:{" "}
+                <a href="mailto:robinfoxin@gmail.com">robinfoxin@gmail.com</a>.
+              </p>
+            </div>
+          </section>
         </main>
       </div>
     </div>

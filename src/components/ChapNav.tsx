@@ -8,6 +8,8 @@ const CHAPTERS = [
   { id: "wins", label: "Easy wins" },
   { id: "polish", label: "Polish" },
   { id: "method", label: "Method" },
+  { id: "plan", label: "The plan" },
+  { id: "about", label: "About me" },
 ];
 
 /** Sticky chapter rail with scroll-spy. Hidden under 1100px via CSS. */
